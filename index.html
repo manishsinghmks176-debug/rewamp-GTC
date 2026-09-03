@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gujarat Tech Consultants — The Engineering Studio for Ambitious Enterprises</title>
+  <meta name="description" content="Cinematic web architectures, deep technical engineering, and digital identity for Indian businesses. Official Gujarat MSME Scheme partner. Deployed in 10-14 days." />
+
+  <!-- OpenGraph & Meta -->
+  <meta property="og:title" content="Gujarat Tech Consultants | High-Performance Digital Architecture" />
+  <meta property="og:description" content="Cinematic, fast, honest websites with Gujarat MSME-supported pricing. From Rs 7,200 with NFC smart card and verified digital authority." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#060608" />
+
+  <!-- External Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Inline utility layout helpers matching modern Tailwind/Melius standards */
+    .container-xl {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    @media (max-width: 768px) {
+      .container-xl { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Noise Overlay -->
+  <div class="noise-layer" aria-hidden="true"></div>
+
+  <!-- Ambient Hero WebGL/2D Canvas -->
+  <canvas id="ambient-canvas" style="position: fixed; inset: 0; pointer-events: none; z-index: 0;"></canvas>
+
+  <!-- =========================================================================
+       1. Top Announcement Bar (Melius Parity)
+       ========================================================================= -->
+  <div style="position: sticky; top: 0; z-index: 90; padding: 0 12px; background: rgba(6, 6, 8, 0.85); backdrop-filter: blur(12px);">
+    <div class="container-xl" style="padding: 0;">
+      <div style="background: #111116; border: 1px solid rgba(255,255,255,0.08); border-top: none; border-radius: 0 0 12px 12px; height: 38px; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 0 16px;">
+        <a href="#pricing" style="font-family: var(--font-mono); font-size: 0.75rem; color: #EDEDED; text-decoration: none; display: flex; align-items: center; gap: 8px; white-space: nowrap;">
+          <span style="color: var(--accent-orange); font-weight: 700;">⚡ GUJARAT MSME DIGITAL SUBSIDY ACTIVE</span>
+          <span style="color: var(--text-muted);">—</span>
+          <span>Official Scheme Partnership • Up to 38% Subsidized Pricing • Live in 10-14 Days</span>
+          <span style="color: var(--accent-orange); font-weight: 600;">Explore Rates →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. Floating Header Dock
+       ========================================================================= -->
+  <header id="main-header" style="position: sticky; top: 48px; z-index: 80; padding: 12px 0; transition: all 0.3s ease;">
+    <div class="container-xl">
+      <nav style="display: flex; align-items: center; justify-content: space-between; background: rgba(18, 18, 22, 0.78); backdrop-filter: blur(20px); border: 1px solid var(--border-subtle); border-radius: var(--radius-pill); padding: 8px 18px; box-shadow: 0 12px 30px rgba(0,0,0,0.5);">
+        
+        <!-- Brand Monogram -->
+        <a href="#" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
+          <div style="width: 34px; height: 34px; background: linear-gradient(135deg, #FF5500 0%, #FF9800 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-family: var(--font-display); color: #000; font-size: 1rem; box-shadow: 0 0 15px rgba(255, 85, 0, 0.4);">
+            G
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-weight: 700; font-size: 0.9375rem; letter-spacing: -0.02em; line-height: 1.1;">
+              Gujarat Tech Consultants
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.625rem; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase;">
+              Ahmedabad • Engineering Studio
+            </div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div style="display: flex; align-items: center; gap: 20px;" class="desktop-nav">
+          <a href="#delivery-canvas" style="color: var(--text-secondary); text-decoration: none; font-size: 0.8125rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-secondary)'">Delivery Canvas</a>
+          <a href="#showcase" style="color: var(--text-secondary); text-decoration: none; font-size: 0.8125rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-secondary)'">Showcase</a>
+          <a href="#benchmark" style="color: var(--text-secondary); text-decoration: none; font-size: 0.8125rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-secondary)'">Speed Benchmark</a>
+          <a href="#nfc-card" style="color: var(--text-secondary); text-decoration: none; font-size: 0.8125rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-secondary)'">Smart NFC</a>
+          <a href="#pricing" style="color: var(--text-secondary); text-decoration: none; font-size: 0.8125rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-secondary)'">MSME Pricing</a>
+          <a href="#faq" style="color: var(--text-secondary); text-decoration: none; font-size: 0.8125rem; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-secondary)'">FAQ</a>
+        </div>
+
+        <!-- Action CTAs -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="https://wa.me/918140804662?text=Hi%20Gujarat%20Tech%20Consultants%2C%20I&#x27;d%20like%20to%20discuss%20a%20website%20project%20for%20my%20business." target="_blank" rel="noreferrer" class="btn-secondary" style="height: 36px; padding: 0 16px; font-size: 0.8125rem;">
+            <span>WhatsApp Us</span>
+          </a>
+          <button class="btn-primary" style="height: 36px; padding: 0 18px; font-size: 0.8125rem;" onclick="openEstimateModal()">
+            <span>Start Project</span>
+            <span style="font-size: 0.95rem;">→</span>
+          </button>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       3. Hero Section (Melius 1:1 Parity)
+       ========================================================================= -->
+  <section id="hero" style="position: relative; padding: 80px 0 60px 0; overflow: hidden;">
+    
+    <!-- Background Dot Grid with Radial Mask -->
+    <div class="dot-grid-bg" style="position: absolute; inset: 0; mask-image: radial-gradient(circle at center, black 30%, transparent 80%); -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%); pointer-events: none; opacity: 0.4;"></div>
+
+    <div class="container-xl" style="position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; text-align: center;">
+      
+      <!-- Top Pill Tag -->
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 85, 0, 0.08); border: 1px solid rgba(255, 85, 0, 0.25); border-radius: var(--radius-pill); padding: 5px 14px; margin-bottom: 28px;">
+        <span style="width: 7px; height: 7px; background: var(--accent-orange); border-radius: 50%; box-shadow: 0 0 8px var(--accent-orange);"></span>
+        <span style="font-family: var(--font-mono); font-size: 0.6875rem; color: #FFFFFF; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600;">
+          MSME Recognized Web Studio • Gujarat, India
+        </span>
+      </div>
+
+      <!-- Main Monumental Heading -->
+      <h1 class="font-display tracking-tightest" style="font-size: clamp(2.8rem, 6.5vw, 5.5rem); font-weight: 800; line-height: 1.02; margin-bottom: 24px; color: #FFFFFF; max-width: 980px;">
+        <span>One Studio.</span><br />
+        <span style="background: linear-gradient(135deg, #FFFFFF 20%, #FF5500 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          Infinite Digital Authority.
+        </span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p style="font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-secondary); max-width: 720px; line-height: 1.6; margin-bottom: 40px;">
+        Be the undeniable leader in your trade. We engineer cinematic web architectures, deep technical systems, and contactless NFC identity for Indian businesses ready to dominate online.
+      </p>
+
+      <!-- Melius-Style Interactive Brief/Prompt Bar -->
+      <div style="width: 100%; max-width: 620px; background: rgba(18, 18, 24, 0.92); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 6px 6px 6px 18px; display: flex; align-items: center; gap: 12px; box-shadow: 0 20px 50px -10px rgba(0,0,0,0.8), 0 0 25px rgba(255,85,0,0.12); margin-bottom: 36px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 17 10 11 4 5"></polyline>
+          <line x1="12" y1="19" x2="20" y2="19"></line>
+        </svg>
+        <input id="hero-prompt-input" type="text" placeholder="Brief our lead architect: 'Laser cutting RFQ catalogue for Ahmedabad...'" style="flex: 1; background: transparent; border: none; outline: none; color: #FFFFFF; font-size: 0.875rem; font-family: var(--font-sans);" />
+        <button class="btn-primary" style="height: 38px; padding: 0 16px; font-size: 0.8125rem;" onclick="handleHeroPrompt()">
+          <span>Brief Architect →</span>
+        </button>
+      </div>
+
+      <!-- Trust Credentials Ticker -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; color: var(--text-muted); font-size: 0.75rem; font-family: var(--font-mono);">
+        <span style="display: flex; align-items: center; gap: 6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          MSME Scheme Subsidized Rates
+        </span>
+        <span style="display: flex; align-items: center; gap: 6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          Partnered with Govt of Gujarat
+        </span>
+        <span style="display: flex; align-items: center; gap: 6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          10-14 Day Turnaround
+        </span>
+        <span style="display: flex; align-items: center; gap: 6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          100% Domain & Code Ownership
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. Marquee Tech Track
+       ========================================================================= -->
+  <div style="border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); background: #0b0b0e; padding: 12px 0; overflow: hidden;">
+    <div class="marquee-track">
+      <div style="display: flex; align-items: center; gap: 40px; padding-right: 40px; font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-muted); letter-spacing: 0.18em; text-transform: uppercase;">
+        <span>MSME Registered Studio</span>
+        <span>•</span>
+        <span>Next.js 15 Edge SSR</span>
+        <span>•</span>
+        <span>Contactless NFC Smart Cards</span>
+        <span>•</span>
+        <span>Sub-Second Core Web Vitals</span>
+        <span>•</span>
+        <span>WhatsApp First Direct Support</span>
+        <span>•</span>
+        <span>Cloudflare Global Security</span>
+        <span>•</span>
+        <span>100% Client Login Ownership</span>
+        <span>•</span>
+        <span>Verified Digital Presence Certification</span>
+        <span>•</span>
+        <span>Domain & Hosting in Your Name</span>
+      </div>
+      <!-- Duplicate for infinite scroll -->
+      <div style="display: flex; align-items: center; gap: 40px; padding-right: 40px; font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-muted); letter-spacing: 0.18em; text-transform: uppercase;">
+        <span>MSME Registered Studio</span>
+        <span>•</span>
+        <span>Next.js 15 Edge SSR</span>
+        <span>•</span>
+        <span>Contactless NFC Smart Cards</span>
+        <span>•</span>
+        <span>Sub-Second Core Web Vitals</span>
+        <span>•</span>
+        <span>WhatsApp First Direct Support</span>
+        <span>•</span>
+        <span>Cloudflare Global Security</span>
+        <span>•</span>
+        <span>100% Client Login Ownership</span>
+        <span>•</span>
+        <span>Verified Digital Presence Certification</span>
+        <span>•</span>
+        <span>Domain & Hosting in Your Name</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       5. The Signature Node-Based Delivery Canvas (Melius 1:1 Core Visual)
+       ========================================================================= -->
+  <section id="delivery-canvas" style="padding: 100px 0; position: relative;">
+    <div class="container-xl">
+      
+      <!-- Section Header -->
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 40px;">
+        <span class="badge-tag badge-outline" style="margin-bottom: 12px; color: var(--accent-orange);">
+          Interactive Delivery Canvas
+        </span>
+        <h2 class="font-display tracking-tightest" style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; color: #FFFFFF; margin-bottom: 16px;">
+          The Architecture Graph.
+        </h2>
+        <p style="color: var(--text-secondary); max-width: 680px; font-size: 1rem; line-height: 1.6;">
+          Every project is built as a connected graph of specifications, kinetic UI layers, edge runtimes, and certified authority. Select an enterprise sector below to inspect the live pipeline.
+        </p>
+      </div>
+
+      <!-- Sector Pipeline Switcher Tabs -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 24px;">
+        <button class="pipeline-tab-btn btn-primary" data-pipeline="manufacturing">
+          Precision Manufacturing
+        </button>
+        <button class="pipeline-tab-btn btn-secondary" data-pipeline="hospitality">
+          Heritage Hospitality
+        </button>
+        <button class="pipeline-tab-btn btn-secondary" data-pipeline="resort">
+          Eco-Luxury Resort
+        </button>
+        <button class="pipeline-tab-btn btn-secondary" data-pipeline="saas">
+          Enterprise FinTech & SaaS
+        </button>
+      </div>
+
+      <!-- Pipeline Info Banner -->
+      <div style="background: rgba(18, 18, 24, 0.7); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span id="pipeline-badge" class="badge-tag badge-orange">B2B CAPABILITY</span>
+          <span id="pipeline-title" style="font-weight: 700; font-size: 0.9375rem; color: #FFFFFF; font-family: var(--font-display);">Precision Metal & Industrial</span>
+          <span style="color: var(--text-muted); font-size: 0.8125rem;">—</span>
+          <span id="pipeline-desc" style="color: var(--text-secondary); font-size: 0.8125rem;">Laser cutting, tube & sheet engineering with tolerance-driven RFQ drawing intake.</span>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-emerald); display: flex; align-items: center; gap: 6px;">
+          <span style="width: 8px; height: 8px; background: var(--accent-emerald); border-radius: 50%; display: inline-block;"></span>
+          LIVE 60FPS GRAPH
+        </div>
+      </div>
+
+      <!-- Main Canvas Layout: Graph Canvas on Left, Telemetry Inspector on Right -->
+      <div style="display: grid; grid-template-columns: 1fr 340px; gap: 24px;" class="canvas-grid-layout">
+        
+        <!-- Graph Area with SVG Bezier Wires -->
+        <div class="canvas-wrapper dot-grid-subtle" style="height: 480px; position: relative; overflow-x: auto; overflow-y: hidden;">
+          
+          <!-- SVG Bezier Curves Overlay -->
+          <svg id="bezier-wires-svg" style="position: absolute; inset: 0; width: 1100px; height: 480px; pointer-events: none; z-index: 5;"></svg>
+
+          <!-- Dynamic Node Boxes Container -->
+          <div id="pipeline-nodes-container" style="position: relative; width: 1100px; height: 100%; z-index: 10;"></div>
+
+          <!-- Bottom status pill -->
+          <div style="position: absolute; bottom: 12px; left: 16px; background: rgba(0,0,0,0.6); border: 1px solid var(--border-subtle); border-radius: var(--radius-pill); padding: 4px 12px; font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-muted); z-index: 15;">
+            Nodes connected via reactive Edge mesh • Click any node to inspect telemetry
+          </div>
+        </div>
+
+        <!-- Telemetry Inspector Panel -->
+        <div id="node-telemetry-inspector" class="glow-card" style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between; height: 480px;">
+          <!-- Content populated via canvas-engine.js -->
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. Live Performance Benchmark Gauge
+       ========================================================================= -->
+  <section id="benchmark" style="padding: 90px 0; background: #0b0b0f; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container-xl">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;" class="benchmark-grid">
+        
+        <!-- Left: Benchmark Explanation -->
+        <div>
+          <span class="badge-tag badge-outline" style="color: var(--accent-emerald); margin-bottom: 12px;">
+            Telemetry Audit
+          </span>
+          <h2 class="font-display tracking-tightest" style="font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; color: #FFFFFF; line-height: 1.1; margin-bottom: 18px;">
+            Speed You Can Feel.<br />
+            <span style="color: var(--accent-orange);">Authority Buyers Measure.</span>
+          </h2>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 24px;">
+            Most agencies deploy bloated, unmaintained templates that take 4 to 6 seconds to load over Indian 4G connections, throwing away over half of prospective inquiries before the screen even renders.
+          </p>
+          <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 30px;">
+            We engineer clean Next.js edge builds running on distributed Tier-1 CDN networks. Your pages render in under 0.8 seconds on any mid-range Android phone.
+          </p>
+
+          <!-- Toggle comparison -->
+          <div style="display: flex; gap: 12px;">
+            <button id="benchmark-btn-gtc" class="btn-primary" onclick="switchBenchmark('gtc')">
+              GTC Edge Architecture
+            </button>
+            <button id="benchmark-btn-wp" class="btn-secondary" onclick="switchBenchmark('wordpress')">
+              Standard WordPress / Agency Template
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Real-time Telemetry Dashboard -->
+        <div class="glow-card" style="padding: 32px; background: #121217; border: 1px solid var(--border-subtle);">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 16px; margin-bottom: 24px;">
+            <div>
+              <div style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: #FFFFFF;">Core Web Vitals Audit</div>
+              <div id="metric-tech" style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-orange);">Next.js 15 Edge SSR • Cloudflare Anycast • Brotli 11</div>
+            </div>
+            <div style="text-align: right;">
+              <div id="metric-score" style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; color: var(--accent-emerald);">100 / 100</div>
+              <div style="font-family: var(--font-mono); font-size: 0.625rem; color: var(--text-muted); text-transform: uppercase;">Google Lighthouse</div>
+            </div>
+          </div>
+
+          <!-- Metrics Grid -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px;">
+            <div style="background: rgba(0,0,0,0.5); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px; text-align: center;">
+              <div style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-muted); margin-bottom: 4px;">Largest Paint (LCP)</div>
+              <div id="metric-lcp" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: #FFFFFF;">0.78s</div>
+              <div style="font-size: 0.625rem; color: var(--accent-emerald); margin-top: 2px;">Target &lt; 2.5s</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.5); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px; text-align: center;">
+              <div style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-muted); margin-bottom: 4px;">Time to First Byte</div>
+              <div id="metric-ttfb" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: #FFFFFF;">24ms</div>
+              <div style="font-size: 0.625rem; color: var(--accent-emerald); margin-top: 2px;">Zero Cold Start</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.5); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px; text-align: center;">
+              <div style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-muted); margin-bottom: 4px;">Blocking Time</div>
+              <div id="metric-tbt" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: #FFFFFF;">0ms</div>
+              <div style="font-size: 0.625rem; color: var(--accent-emerald); margin-top: 2px;">Zero UI Lag</div>
+            </div>
+          </div>
+
+          <div style="background: rgba(255, 85, 0, 0.05); border: 1px solid rgba(255, 85, 0, 0.2); border-radius: 10px; padding: 14px; font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5;">
+            <span style="color: var(--accent-orange); font-weight: 600;">Verdict: </span>
+            <span id="metric-summary">Loads before the user even finishes lifting their finger. Instant authority.</span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. Interactive Industry Showcase (Melius Showcase Parity)
+       ========================================================================= -->
+  <section id="showcase" style="padding: 100px 0;">
+    <div class="container-xl">
+      
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 50px;">
+        <span class="badge-tag badge-outline" style="color: var(--accent-orange); margin-bottom: 12px;">
+          Proven Deployments
+        </span>
+        <h2 class="font-display tracking-tightest" style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; color: #FFFFFF; margin-bottom: 16px;">
+          Five Businesses. Five Different Rooms.
+        </h2>
+        <p style="color: var(--text-secondary); max-width: 680px; font-size: 1rem; line-height: 1.6;">
+          A precision laser cutting factory, a 47-year-old village restaurant, and an eco-luxury forest resort do not want the same website. See how far apart the same engineering studio can sit.
+        </p>
+      </div>
+
+      <!-- Grid of Showcase Deployments -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px;">
+        
+        <!-- Case 1: Shanay Industries -->
+        <div class="glow-card" style="padding: 28px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <span class="badge-tag badge-orange">Precision B2B</span>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">01 / 05</span>
+            </div>
+            <h3 class="font-display" style="font-size: 1.35rem; font-weight: 700; color: #FFFFFF; margin-bottom: 8px;">
+              Shanay Industries
+            </h3>
+            <div style="font-size: 0.8125rem; color: var(--accent-orange); font-family: var(--font-mono); margin-bottom: 12px;">
+              Tube & Sheet Laser Cutting • Ahmedabad
+            </div>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+              “We cut steel to tolerances buyers judge in the first ten seconds online. GTC built an engineering brief, not a brochure. Enquiries now arrive with CAD drawings attached instead of asking what we do.”
+            </p>
+            <div style="background: rgba(0,0,0,0.5); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 12px; margin-bottom: 20px; font-family: var(--font-mono); font-size: 0.75rem;">
+              <div style="color: var(--text-muted); margin-bottom: 4px;">Architecture Outcome:</div>
+              <div style="color: #FFFFFF;">• Tolerance Intake Engine (±0.02mm)</div>
+              <div style="color: #FFFFFF;">• Sub-1s Drawing Submission Flow</div>
+              <div style="color: #FFFFFF;">• 340% increase in export RFQs</div>
+            </div>
+          </div>
+          <a href="https://www.shanayindustries.com/index.html" target="_blank" rel="noreferrer" class="btn-secondary" style="width: 100%; justify-content: center; height: 38px;">
+            Visit shanayindustries.com ↗
+          </a>
+        </div>
+
+        <!-- Case 2: Vishalla -->
+        <div class="glow-card" style="padding: 28px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <span class="badge-tag badge-outline" style="border-color: #EAB308; color: #EAB308;">Heritage Museum</span>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">02 / 05</span>
+            </div>
+            <h3 class="font-display" style="font-size: 1.35rem; font-weight: 700; color: #FFFFFF; margin-bottom: 8px;">
+              Vishalla
+            </h3>
+            <div style="font-size: 0.8125rem; color: #EAB308; font-family: var(--font-mono); margin-bottom: 12px;">
+              Village Restaurant & Museum • Ahmedabad (Est. 1978)
+            </div>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+              “Ours is a 47-year-old institution of mud floors, leaf plates and lamplight. The site keeps that hush intact and lets guests reserve floor seating before arrival with zero aggregator cuts.”
+            </p>
+            <div style="background: rgba(0,0,0,0.5); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 12px; margin-bottom: 20px; font-family: var(--font-mono); font-size: 0.75rem;">
+              <div style="color: var(--text-muted); margin-bottom: 4px;">Architecture Outcome:</div>
+              <div style="color: #FFFFFF;">• Zero-Commission Direct Reservation</div>
+              <div style="color: #FFFFFF;">• Mud-Floor Lamplight Visual System</div>
+              <div style="color: #FFFFFF;">• Tabletop NFC Smart Card Integration</div>
+            </div>
+          </div>
+          <a href="https://vishalla.com/" target="_blank" rel="noreferrer" class="btn-secondary" style="width: 100%; justify-content: center; height: 38px;">
+            Visit vishalla.com ↗
+          </a>
+        </div>
+
+        <!-- Case 3: Woods at Sasan -->
+        <div class="glow-card" style="padding: 28px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <span class="badge-tag badge-green">Eco-Resort</span>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">03 / 05</span>
+            </div>
+            <h3 class="font-display" style="font-size: 1.35rem; font-weight: 700; color: #FFFFFF; margin-bottom: 8px;">
+              Woods at Sasan
+            </h3>
+            <div style="font-size: 0.8125rem; color: var(--accent-emerald); font-family: var(--font-mono); margin-bottom: 12px;">
+              Wildlife Safari Resort • Sasan Gir
+            </div>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+              “Eight acres of mango orchard on the edge of Gir. Stone, lime, and teak on site, and a booking journey that never breaks the quiet. Guests message saying the photography is why they chose us over big chains.”
+            </p>
+            <div style="background: rgba(0,0,0,0.5); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 12px; margin-bottom: 20px; font-family: var(--font-mono); font-size: 0.75rem;">
+              <div style="color: var(--text-muted); margin-bottom: 4px;">Architecture Outcome:</div>
+              <div style="color: #FFFFFF;">• Biophilic Calm Booking Flow</div>
+              <div style="color: #FFFFFF;">• High-Def Safari Video Backgrounds</div>
+              <div style="color: #FFFFFF;">• 8 Suite Real-Time Availability Engine</div>
+            </div>
+          </div>
+          <a href="https://www.woodsatsasan.com/" target="_blank" rel="noreferrer" class="btn-secondary" style="width: 100%; justify-content: center; height: 38px;">
+            Visit woodsatsasan.com ↗
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. Interactive 3D NFC Smart Card Simulator
+       ========================================================================= -->
+  <section id="nfc-card" style="padding: 90px 0; background: #0a0a0d; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container-xl">
+      <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 40px; align-items: center;" class="nfc-grid">
+        
+        <!-- Left: Explanation -->
+        <div>
+          <span class="badge-tag badge-orange" style="margin-bottom: 12px;">
+            Hardware Touchpoint
+          </span>
+          <h2 class="font-display tracking-tightest" style="font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; color: #FFFFFF; line-height: 1.1; margin-bottom: 18px;">
+            The Bridge Between Your Counter &amp; Their Phone.
+          </h2>
+          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin-bottom: 20px;">
+            Included free in our <strong>Most Selling</strong> and <strong>Launch</strong> plans. No app downloads. No awkward camera QR hunting. A physical laser-engraved NFC smart card or counter token that instantly opens your website, catalogue, or review page when tapped with any smartphone.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px;">
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: #E5E7EB;">
+              <span style="color: var(--accent-orange); font-weight: 700;">✓</span>
+              <span>Instant contactless profile, catalogue, or dining menu sharing</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: #E5E7EB;">
+              <span style="color: var(--accent-orange); font-weight: 700;">✓</span>
+              <span>1-tap Google Review booster for physical store locations</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 0.875rem; color: #E5E7EB;">
+              <span style="color: var(--accent-orange); font-weight: 700;">✓</span>
+              <span>Laser-finished metallic matte black surface with encrypted NFC chip</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px;">
+            <button class="btn-primary" onclick="simulateNfcTap()">
+              <span>Tap to Simulate Phone Trigger</span>
+              <span>⚡</span>
+            </button>
+            <button class="btn-secondary" onclick="document.getElementById('nfc-3d-card').classList.toggle('flipped')">
+              <span>Flip Card 3D</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: 3D Tilt Card Simulator -->
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 0;" class="perspective-1000">
+          <div id="nfc-3d-card" class="nfc-card">
+            
+            <!-- Card Front -->
+            <div class="card-face card-front">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-family: var(--font-display); font-weight: 700; font-size: 0.9375rem; color: #FFFFFF; letter-spacing: -0.02em;">
+                  Gujarat Tech Consultants
+                </div>
+                <!-- Contactless Icon -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2">
+                  <path d="M6 8.32a7.43 7.43 0 0 1 0 7.36"></path>
+                  <path d="M9.46 6.21a11.76 11.76 0 0 1 0 11.58"></path>
+                  <path d="M12.91 4.1a15.91 15.91 0 0 1 .01 15.8"></path>
+                </svg>
+              </div>
+
+              <!-- NFC Chip Icon Graphic -->
+              <div style="width: 42px; height: 32px; background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%); border-radius: 6px; border: 1px solid rgba(255,255,255,0.4); position: relative; overflow: hidden; opacity: 0.85;">
+                <div style="position: absolute; inset: 4px; border: 1px solid rgba(0,0,0,0.4); border-radius: 3px;"></div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                  <div style="font-family: var(--font-mono); font-size: 0.625rem; color: var(--text-muted); text-transform: uppercase;">Verified Identity</div>
+                  <div style="font-family: var(--font-mono); font-size: 0.8125rem; color: #FFFFFF; font-weight: 600;">ENTERPRISE PARTNER</div>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 0.625rem; color: var(--accent-orange);">
+                  TAP TO CONNECT
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Back -->
+            <div class="card-face card-back">
+              <div style="height: 38px; background: #000000; margin: -24px -24px 16px -24px; border-bottom: 1px solid rgba(255,255,255,0.1);"></div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-family: var(--font-mono); font-size: 0.625rem; color: var(--text-muted); max-width: 170px;">
+                  Encrypted NFC Tag • Official MSME Verified Digital Presence
+                </div>
+                <!-- Simulated QR -->
+                <div style="width: 46px; height: 46px; background: #FFFFFF; border-radius: 4px; padding: 4px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;">
+                  <div style="background: #000;"></div><div style="background: #000;"></div><div style="background: #000;"></div>
+                  <div style="background: #000;"></div><div style="background: #fff;"></div><div style="background: #000;"></div>
+                  <div style="background: #000;"></div><div style="background: #000;"></div><div style="background: #000;"></div>
+                </div>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 0.625rem; color: var(--text-muted); text-align: center;">
+                support: +91 8140804662 • gujarattechconsultants.services
+              </div>
+            </div>
+
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-muted); margin-top: 14px;">
+            Click card to flip 3D • Tap button to test contactless interaction
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. Interactive Pricing & MSME Subsidy Engine (Melius Style)
+       ========================================================================= -->
+  <section id="pricing" style="padding: 100px 0; position: relative;">
+    <div class="container-xl">
+      
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 40px;">
+        <span class="badge-tag badge-orange" style="margin-bottom: 12px;">
+          Government of Gujarat Partnership
+        </span>
+        <h2 class="font-display tracking-tightest" style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; color: #FFFFFF; margin-bottom: 16px;">
+          The Full Math. Out in the Open.
+        </h2>
+        <p style="color: var(--text-secondary); max-width: 680px; font-size: 1rem; line-height: 1.6; margin-bottom: 24px;">
+          The MSME support discount comes directly from our partnership under the MSME Scheme with the Government of Gujarat, passed on to you in full. No hidden agency markup.
+        </p>
+
+        <!-- Billing Mode Toggle -->
+        <div style="display: inline-flex; background: #121217; border: 1px solid var(--border-subtle); border-radius: var(--radius-pill); padding: 4px;">
+          <button id="btn-billing-onetime" class="btn-primary" style="height: 34px; font-size: 0.8125rem;" onclick="setBillingMode('onetime')">
+            One-Time Subsidized Build
+          </button>
+          <button id="btn-billing-retainer" class="btn-secondary" style="height: 34px; font-size: 0.8125rem;" onclick="setBillingMode('retainer')">
+            Annual Retainer &amp; Dedicated Dev
+          </button>
+        </div>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px;">
+        
+        <!-- Plan 1: Essential -->
+        <div class="glow-card" style="padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 class="font-display" style="font-size: 1.5rem; font-weight: 700; color: #FFFFFF;">Essential</h3>
+              <span class="badge-tag badge-outline">Tier 1</span>
+            </div>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 24px;">
+              One business website built properly. No shortcuts hiding under the hood.
+            </p>
+
+            <!-- Price Breakdown Math -->
+            <div style="background: rgba(0,0,0,0.4); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 14px; margin-bottom: 24px; font-family: var(--font-mono); font-size: 0.8125rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: var(--text-muted);">
+                <span>Base Price:</span>
+                <span id="base-essential" style="text-decoration: line-through;">₹10,000</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: var(--accent-orange);">
+                <span>Flat 18% Discount:</span>
+                <span id="disc-essential">-₹1,800</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; color: var(--accent-emerald);">
+                <span>Gujarat MSME Subsidy:</span>
+                <span id="subsidy-essential">-₹1,000</span>
+              </div>
+            </div>
+
+            <!-- Net Payable -->
+            <div style="margin-bottom: 24px;">
+              <div style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-muted); text-transform: uppercase;">You Pay (Net Subsidized)</div>
+              <div id="price-essential" class="font-display" style="font-size: 2.75rem; font-weight: 800; color: #FFFFFF; line-height: 1.1;">
+                ₹7,200
+              </div>
+              <div id="subtext-essential" style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px;">
+                One-time subsidized build
+              </div>
+            </div>
+
+            <!-- Features Checklist -->
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 30px;">
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Custom high-performance business website</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Mobile-first responsive architecture (&lt;1.2s load)</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Direct WhatsApp inquiry channel</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Domain &amp; hosting registered in your name</span>
+              </li>
+            </ul>
+          </div>
+
+          <button class="btn-secondary" style="width: 100%; justify-content: center;" onclick="openEstimateModal('Essential Plan Build')">
+            Choose Essential →
+          </button>
+        </div>
+
+        <!-- Plan 2: Most Selling (Featured Melius Glow) -->
+        <div class="glow-card glow-card-featured" style="padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 class="font-display" style="font-size: 1.5rem; font-weight: 700; color: #FFFFFF;">Most Selling</h3>
+              <span class="badge-tag badge-orange">MOST POPULAR</span>
+            </div>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 24px;">
+              The architecture most founders choose. Your web platform, plus the NFC smart card that connects your counter to it.
+            </p>
+
+            <!-- Price Breakdown Math -->
+            <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255, 85, 0, 0.3); border-radius: 10px; padding: 14px; margin-bottom: 24px; font-family: var(--font-mono); font-size: 0.8125rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: var(--text-muted);">
+                <span>Base Price:</span>
+                <span id="base-selling" style="text-decoration: line-through;">₹14,000</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: var(--accent-orange);">
+                <span>Flat 18% Discount:</span>
+                <span id="disc-selling">-₹2,520</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; color: var(--accent-emerald);">
+                <span>Gujarat MSME Subsidy:</span>
+                <span id="subsidy-selling">-₹2,000</span>
+              </div>
+            </div>
+
+            <!-- Net Payable -->
+            <div style="margin-bottom: 24px;">
+              <div style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-muted); text-transform: uppercase;">You Pay (Net Subsidized)</div>
+              <div id="price-selling" class="font-display" style="font-size: 2.75rem; font-weight: 800; color: #FFFFFF; line-height: 1.1;">
+                ₹9,480
+              </div>
+              <div id="subtext-selling" style="font-size: 0.75rem; color: var(--accent-orange); margin-top: 4px; font-weight: 600;">
+                Includes Physical NFC Smart Card
+              </div>
+            </div>
+
+            <!-- Features Checklist -->
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.8125rem; color: #E5E7EB; margin-bottom: 30px;">
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span><strong>Everything in Essential</strong></span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span><strong>NFC-based multi-link smart card</strong> (instant tap sharing)</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Laser-cut matte finish physical business card</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Google Maps / Google Business integration</span>
+              </li>
+            </ul>
+          </div>
+
+          <button class="btn-primary" style="width: 100%; justify-content: center; height: 44px;" onclick="openEstimateModal('Most Selling Plan + NFC')">
+            Choose Most Selling →
+          </button>
+        </div>
+
+        <!-- Plan 3: Launch & Digital Authority -->
+        <div class="glow-card" style="padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 class="font-display" style="font-size: 1.5rem; font-weight: 700; color: #FFFFFF;">Launch</h3>
+              <span class="badge-tag badge-green">AUTHORITY</span>
+            </div>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 24px;">
+              For owners who want to be found, trusted, and remembered above all competitors.
+            </p>
+
+            <!-- Price Breakdown Math -->
+            <div style="background: rgba(0,0,0,0.4); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 14px; margin-bottom: 24px; font-family: var(--font-mono); font-size: 0.8125rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: var(--text-muted);">
+                <span>Base Price:</span>
+                <span id="base-launch" style="text-decoration: line-through;">₹20,000</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: var(--accent-orange);">
+                <span>Flat 18% Discount:</span>
+                <span id="disc-launch">-₹3,600</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; color: var(--accent-emerald);">
+                <span>Gujarat MSME Subsidy:</span>
+                <span id="subsidy-launch">-₹4,000</span>
+              </div>
+            </div>
+
+            <!-- Net Payable -->
+            <div style="margin-bottom: 24px;">
+              <div style="font-family: var(--font-mono); font-size: 0.6875rem; color: var(--text-muted); text-transform: uppercase;">You Pay (Net Subsidized)</div>
+              <div id="price-launch" class="font-display" style="font-size: 2.75rem; font-weight: 800; color: #FFFFFF; line-height: 1.1;">
+                ₹12,400
+              </div>
+              <div id="subtext-launch" style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px;">
+                Complete digital footprint + Verified Badge
+              </div>
+            </div>
+
+            <!-- Features Checklist -->
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 30px;">
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span><strong>Everything in Most Selling + NFC Card</strong></span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Google Business Profile 360 Optimization</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span><strong>Verified Digital Presence</strong> official badge certification</span>
+              </li>
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Photography shotlist direction &amp; custom copy</span>
+              </li>
+            </ul>
+          </div>
+
+          <button class="btn-secondary" style="width: 100%; justify-content: center;" onclick="openEstimateModal('Launch Authority Plan')">
+            Choose Launch →
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Renewal Transparency Note -->
+      <div style="background: rgba(18, 18, 24, 0.6); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 20px; text-align: center; max-width: 800px; margin: 0 auto;">
+        <div style="font-family: var(--font-display); font-weight: 700; color: #FFFFFF; font-size: 0.9375rem; margin-bottom: 4px;">
+          Renewals from the next year: Honest ₹3,000 per year.
+        </div>
+        <div style="font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5;">
+          Includes your official domain, SSL certificate, edge cloud hosting, and continuous background security. Whatever price you sign at is the price you pay, always.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       10. Technical Capabilities Matrix
+       ========================================================================= -->
+  <section id="capabilities" style="padding: 100px 0; background: #08080b;">
+    <div class="container-xl">
+      
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 50px;">
+        <span class="badge-tag badge-outline" style="color: var(--accent-orange); margin-bottom: 12px;">
+          Capabilities Matrix
+        </span>
+        <h2 class="font-display tracking-tightest" style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; color: #FFFFFF; margin-bottom: 16px;">
+          Six Things Done Exceptionally.
+        </h2>
+        <p style="color: var(--text-secondary); max-width: 680px; font-size: 1rem; line-height: 1.6;">
+          One studio, one invoice, one lead engineer to call. We would rather do six disciplines properly than list sixty on a page nobody reads.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+        
+        <div class="glow-card" style="padding: 28px;">
+          <div style="width: 40px; height: 40px; background: rgba(255, 85, 0, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: var(--accent-orange);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="font-display" style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 8px;">
+            Full-Stack Web Architecture
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;">
+            A website that makes a stranger trust you before you have said a word. Sub-second performance on any mid-range Android phone over 4G.
+          </p>
+        </div>
+
+        <div class="glow-card" style="padding: 28px;">
+          <div style="width: 40px; height: 40px; background: rgba(255, 85, 0, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: var(--accent-orange);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          </div>
+          <h3 class="font-display" style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 8px;">
+            Commercial Content &amp; Copy
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;">
+            Pages written the way you explain your work to a friend, only tighter. Clear, authoritative words with zero corporate buzzword filler.
+          </p>
+        </div>
+
+        <div class="glow-card" style="padding: 28px;">
+          <div style="width: 40px; height: 40px; background: rgba(255, 85, 0, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: var(--accent-orange);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+          </div>
+          <h3 class="font-display" style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 8px;">
+            Photography Direction
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;">
+            We plan the shots, the light, and the angles. Real photographs of your machines, rooms, and crafts that look as serious as your workshop.
+          </p>
+        </div>
+
+        <div class="glow-card" style="padding: 28px;">
+          <div style="width: 40px; height: 40px; background: rgba(255, 85, 0, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: var(--accent-orange);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3 class="font-display" style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 8px;">
+            Domain &amp; Cloud Setup (100% Owned)
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;">
+            Domain, email, and servers registered directly in your name with all administrative logins handed to you on launch day. Nothing quietly held hostage.
+          </p>
+        </div>
+
+        <div class="glow-card" style="padding: 28px;">
+          <div style="width: 40px; height: 40px; background: rgba(255, 85, 0, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: var(--accent-orange);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="font-display" style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 8px;">
+            Google Business Optimization
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;">
+            When someone nearby searches for what you sell, you show up open, real, reviewed, and ranked on Google Maps above competitors.
+          </p>
+        </div>
+
+        <div class="glow-card" style="padding: 28px;">
+          <div style="width: 40px; height: 40px; background: rgba(255, 85, 0, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: var(--accent-orange);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="font-display" style="font-size: 1.2rem; font-weight: 700; color: #FFFFFF; margin-bottom: 8px;">
+            WhatsApp Support &amp; Maintenance
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;">
+            Send a WhatsApp message, and your edit is live the same week. No bureaucratic ticket queues or offshore call centers. Backups run quietly every night.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       11. Frequently Asked Questions (Melius Plus/Minus Parity)
+       ========================================================================= -->
+  <section id="faq" style="padding: 100px 0; border-top: 1px solid var(--border-subtle);">
+    <div class="container-xl" style="max-width: 860px;">
+      
+      <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 50px;">
+        <span class="badge-tag badge-outline" style="color: var(--accent-orange); margin-bottom: 12px;">
+          Clear Answers
+        </span>
+        <h2 class="font-display tracking-tightest" style="font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; color: #FFFFFF;">
+          Frequently Asked Questions
+        </h2>
+      </div>
+
+      <div class="accordion-list">
+        
+        <div class="accordion-item active">
+          <button class="accordion-trigger">
+            <span>How does the Gujarat MSME Scheme subsidy work?</span>
+            <div class="accordion-icon">+</div>
+          </button>
+          <div class="accordion-content">
+            <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6;">
+              Gujarat Tech Consultants is officially recognized under the MSME initiative in partnership with the Government of Gujarat to accelerate digital adoption for Indian small, medium, and manufacturing enterprises. The subsidy is directly deducted from our base rates (₹1,000 to ₹4,000 direct deduction), requiring zero complicated paperwork on your end. You pay only the net subsidized amount.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>Who actually owns the website, code, and domain?</span>
+            <div class="accordion-icon">+</div>
+          </button>
+          <div class="accordion-content">
+            <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6;">
+              <strong>You own 100% of everything.</strong> We register the domain, business email, and cloud hosting accounts directly in your company’s legal name, and hand over the primary root credentials on launch day. We do not lock you into proprietary hosting or charge ransom exit fees.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>How does the physical NFC smart card work?</span>
+            <div class="accordion-icon">+</div>
+          </button>
+          <div class="accordion-content">
+            <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6;">
+              Our smart card uses Near Field Communication (NFC), the same wireless tech used in contactless credit cards and Apple Pay. When you tap it against any modern iPhone or Android, your website, digital catalog, or Google Review page opens instantly on their screen with zero apps or camera QR scanning required.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>Can you really deliver a custom platform in 10 to 14 days?</span>
+            <div class="accordion-icon">+</div>
+          </button>
+          <div class="accordion-content">
+            <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6;">
+              Yes. Because we are an engineering studio and not an agency with ten layers of account managers, we work in focused two-week production sprints. We finalize copy and wireframes on days 1–3, engineer kinetic UI and photography direction on days 4–8, and complete testing, domain setup, and NFC programming by day 10–14.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>What happens after launch? Are there hidden maintenance fees?</span>
+            <div class="accordion-icon">+</div>
+          </button>
+          <div class="accordion-content">
+            <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6;">
+              None. From Year 2 onward, standard annual renewal is just ₹3,000 per year, covering high-speed edge cloud hosting, SSL renewal, and domain registration. For clients requiring ongoing marketing, updates, or dedicated engineering sprints, we also offer monthly retainers.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       12. High-Voltage Final CTA Section
+       ========================================================================= -->
+  <section id="contact" style="padding: 100px 0; background: #08080a; position: relative;">
+    <div class="container-xl" style="max-width: 960px;">
+      
+      <div class="glow-card-featured" style="padding: 60px 40px; text-align: center; border-radius: 28px; background: linear-gradient(180deg, #16161c 0%, #0d0d10 100%);">
+        
+        <span class="badge-tag badge-orange" style="margin-bottom: 20px;">
+          Direct Engineering Consultation
+        </span>
+        
+        <h2 class="font-display tracking-tightest" style="font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 800; color: #FFFFFF; line-height: 1.1; margin-bottom: 20px;">
+          Tell Us About Your Business.<br />
+          <span style="color: var(--accent-orange);">We Will Tell You Honestly What It Needs.</span>
+        </h2>
+        
+        <p style="font-size: 1.125rem; color: var(--text-secondary); max-width: 620px; margin: 0 auto 36px auto; line-height: 1.6;">
+          No 50-page slide decks, no discovery fee. A direct conversation on WhatsApp or phone, and then a technical architecture plan you can read in five minutes.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
+          <a href="https://wa.me/918140804662?text=Hi%20Gujarat%20Tech%20Consultants%2C%20I&#x27;d%20like%20to%20talk%20about%20a%20website%20for%20my%20business." target="_blank" rel="noreferrer" class="btn-primary" style="height: 48px; padding: 0 28px; font-size: 0.9375rem;">
+            <span>Chat on WhatsApp Directly</span>
+            <span>💬</span>
+          </a>
+          <button class="btn-secondary" style="height: 48px; padding: 0 24px; font-size: 0.9375rem;" onclick="openEstimateModal()">
+            <span>Calculate Custom Scope</span>
+            <span>⚡</span>
+          </button>
+        </div>
+
+        <div style="margin-top: 30px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
+          Call Direct: +91 8140804662 • info@gujarattechconsultants.services
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       13. Comprehensive Footer
+       ========================================================================= -->
+  <footer style="border-top: 1px solid var(--border-subtle); background: #060608; padding: 80px 0 40px 0;">
+    <div class="container-xl">
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 60px;" class="footer-grid">
+        
+        <!-- Left Column -->
+        <div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <div style="width: 32px; height: 32px; background: var(--accent-orange); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-family: var(--font-display); color: #000;">
+              G
+            </div>
+            <div>
+              <div style="font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: #FFFFFF;">
+                Gujarat Tech Consultants
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 0.625rem; color: var(--text-muted); text-transform: uppercase;">
+                Ahmedabad, Gujarat
+              </div>
+            </div>
+          </div>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; max-width: 380px; margin-bottom: 20px;">
+            A specialized digital studio in Gujarat building the front door for businesses that have earned one. Officially supported under the MSME scheme in partnership with the Government of Gujarat.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); line-height: 1.6;">
+            18, A Block, Bhadreshwar Flats, Ankur Cross Road,<br />
+            Naranpura, Ahmedabad, Gujarat - 380013
+          </div>
+        </div>
+
+        <!-- Middle Column: Navigation -->
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #FFFFFF; text-transform: uppercase; margin-bottom: 16px; font-weight: 600;">
+            Platform Navigation
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.8125rem;">
+            <a href="#delivery-canvas" style="color: var(--text-secondary); text-decoration: none;">Delivery Canvas</a>
+            <a href="#showcase" style="color: var(--text-secondary); text-decoration: none;">Selected Works</a>
+            <a href="#benchmark" style="color: var(--text-secondary); text-decoration: none;">Speed Telemetry</a>
+            <a href="#nfc-card" style="color: var(--text-secondary); text-decoration: none;">Smart NFC Card</a>
+            <a href="#pricing" style="color: var(--text-secondary); text-decoration: none;">Gujarat MSME Pricing</a>
+            <a href="#faq" style="color: var(--text-secondary); text-decoration: none;">FAQ</a>
+          </div>
+        </div>
+
+        <!-- Right Column: Direct Contact & Hotline -->
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #FFFFFF; text-transform: uppercase; margin-bottom: 16px; font-weight: 600;">
+            Direct Channels
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.8125rem;">
+            <a href="https://wa.me/918140804662" target="_blank" rel="noreferrer" style="color: var(--accent-orange); text-decoration: none; display: flex; align-items: center; gap: 8px;">
+              <span>💬 WhatsApp: +91 8140804662</span>
+            </a>
+            <a href="tel:+918140804662" style="color: var(--text-secondary); text-decoration: none;">
+              📞 Direct Call: +91 8140804662
+            </a>
+            <a href="mailto:info@gujarattechconsultants.services" style="color: var(--text-secondary); text-decoration: none;">
+              ✉️ info@gujarattechconsultants.services
+            </a>
+            <div style="margin-top: 10px; padding: 12px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 8px; font-family: var(--font-mono); font-size: 0.6875rem; color: var(--accent-emerald);">
+              ● Edge Runtime: 100% Operational<br />
+              ● Response SLA: &lt; 2 Hours
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Legal Strip -->
+      <div style="border-top: 1px solid var(--border-subtle); padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">
+        <div>
+          © 2026 Gujarat Tech Consultants. Made in Gujarat, India.
+        </div>
+        <div>
+          MSME Scheme Registered • Verified Digital Presence
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODAL 1: Interactive Scope Estimator & WhatsApp Dispatch
+       ========================================================================= -->
+  <div id="estimator-modal" class="modal-backdrop">
+    <div class="modal-container">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div style="font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: #FFFFFF;">
+          Estimate Project Scope
+        </div>
+        <button onclick="closeEstimateModal()" style="background: none; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer;">
+          ×
+        </button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+        <div>
+          <label style="display: block; font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-secondary); margin-bottom: 6px;">Your Business / Brand Name</label>
+          <input id="estimate-business-name" type="text" placeholder="e.g. Acme Precision Metals" style="width: 100%; background: #0a0a0d; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 10px; color: #FFFFFF; font-size: 0.875rem;" />
+        </div>
+
+        <div>
+          <label style="display: block; font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-secondary); margin-bottom: 6px;">Select Package Tier</label>
+          <select id="estimate-plan" onchange="calculateEstimate()" style="width: 100%; background: #0a0a0d; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 10px; color: #FFFFFF; font-size: 0.875rem;">
+            <option value="essential">Essential Plan (Base ₹10,000 → ₹7,200 Subsidized)</option>
+            <option value="selling" selected>Most Selling + NFC Card (Base ₹14,000 → ₹9,480 Subsidized)</option>
+            <option value="launch">Launch Authority + Google 360 (Base ₹20,000 → ₹12,400 Subsidized)</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="display: block; font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-secondary); margin-bottom: 6px;">Key Goal / Brief</label>
+          <textarea id="estimate-project-desc" rows="3" placeholder="Tell us what your business builds or sells..." style="width: 100%; background: #0a0a0d; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 10px; color: #FFFFFF; font-size: 0.875rem; resize: none;"></textarea>
+        </div>
+
+        <!-- Add-ons -->
+        <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 12px;">
+          <div style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--accent-orange); margin-bottom: 8px;">Optional Add-ons</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.8125rem;">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" id="addon-nfc" onchange="calculateEstimate()" />
+              <span>Additional NFC Counter Smart Card (+₹2,500)</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" id="addon-photo" onchange="calculateEstimate()" />
+              <span>Full On-Site Photography Direction (+₹3,500)</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+              <input type="checkbox" id="addon-multilang" onchange="calculateEstimate()" />
+              <span>Multilingual Engine (Gujarati + Hindi + English) (+₹2,000)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Calculated Summary -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px; background: rgba(255, 85, 0, 0.08); border: 1px solid rgba(255, 85, 0, 0.25); border-radius: 10px;">
+          <div>
+            <div style="font-size: 0.6875rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase;">Estimated Net Total</div>
+            <div id="estimate-net-total" style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: #FFFFFF;">₹9,480</div>
+          </div>
+          <div id="estimate-subsidy-savings" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-emerald);">
+            ₹4,520 Saved via MSME Scheme
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button class="btn-primary" style="flex: 1; height: 44px; justify-content: center;" onclick="dispatchWhatsAppEstimate()">
+          <span>Send to Lead Consultant via WhatsApp</span>
+          <span>💬</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: NFC Tap Contactless Demonstration
+       ========================================================================= -->
+  <div id="nfc-tap-simulation-modal" class="modal-backdrop">
+    <div class="modal-container" style="max-width: 440px; text-align: center; background: #0f0f14;">
+      
+      <!-- Simulated Phone Screen Notification -->
+      <div style="width: 70px; height: 70px; background: rgba(255, 85, 0, 0.15); border: 2px solid var(--accent-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-orange)" stroke-width="2">
+          <path d="M6 8.32a7.43 7.43 0 0 1 0 7.36"></path>
+          <path d="M9.46 6.21a11.76 11.76 0 0 1 0 11.58"></path>
+          <path d="M12.91 4.1a15.91 15.91 0 0 1 .01 15.8"></path>
+        </svg>
+      </div>
+
+      <div style="font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: #FFFFFF; margin-bottom: 8px;">
+        NFC Smart Tag Detected!
+      </div>
+      <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 20px;">
+        This simulates what your customer sees on their iPhone or Android when tapping your physical GTC smart card or counter stand.
+      </p>
+
+      <div style="background: rgba(0,0,0,0.6); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 16px; text-align: left; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <div style="width: 24px; height: 24px; background: var(--accent-orange); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; color: #000;">
+            G
+          </div>
+          <div style="font-size: 0.8125rem; font-weight: 600; color: #FFFFFF;">
+            Gujarat Tech Consultants WebTag
+          </div>
+        </div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 6px;">
+          URL: https://gujarattechconsultants.services/client-portal
+        </div>
+        <div style="font-size: 0.75rem; color: var(--accent-emerald);">
+          ✓ Verified SSL • Sub-Second Cache Active • Zero App Required
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px;">
+        <button class="btn-primary" style="flex: 1; height: 40px; justify-content: center;" onclick="closeNfcTapModal(); openEstimateModal('Inquire about NFC Smart Card Integration');">
+          Claim My NFC Card →
+        </button>
+        <button class="btn-secondary" style="height: 40px;" onclick="closeNfcTapModal()">
+          Close
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="canvas-engine.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
