@@ -1,1 +1,77 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" rx="44" fill="#f04e23"/><path d="M65 74h126v35h-44v74h-38v-74H65z" fill="#fff"/></svg>
+(() => {
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Hero collage: continuous low-amplitude float + cursor parallax.
+  const orbit = $('#hero-orbit');
+  const assets = ['factory','restaurant','resort','heritage','health','nfc','mobile','dashboard','blueprint','architecture','speed','search','factory','resort','nfc','dashboard'];
+  if (orbit) {
+    assets.forEach((name,i) => {
+      const img = document.createElement('img');
+      img.className='hero-card'; img.src=`assets/${name}.svg`; img.alt='';
+      const center=(assets.length-1)/2;
+      const x=(i-center)*105 + (i<8?-40:40);
+      const depth=Math.abs(i-center)/center;
+      const y=depth*105 + Math.sin(i*.9)*12;
+      const r=(i-center)*2.1;
+      const s=1-depth*.13;
+      img.dataset.x=x; img.dataset.y=y; img.dataset.r=r; img.dataset.s=s; img.dataset.i=i;
+      img.style.left=`calc(50% + ${x}px)`; img.style.top=`${y+100}px`;
+      img.style.transform=`translate(-50%, -50%) rotate(${r}deg) scale(${s})`;
+      orbit.appendChild(img);
+    });
+  }
+  let mx=0,my=0,tx=0,ty=0;
+  addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-.5)*2;my=(e.clientY/innerHeight-.5)*2},{passive:true});
+  function heroLoop(t){
+    tx+=(mx-tx)*.045; ty+=(my-ty)*.045;
+    $$('.hero-card').forEach((el,i)=>{
+      const phase=(t/1000)*.75 + i*.65;
+      const driftX=Math.sin(phase)*7 + tx*(18+i%3*7);
+      const driftY=Math.cos(phase*.86)*9 + ty*(10+i%4*4);
+      el.style.transform=`translate(calc(-50% + ${driftX}px), calc(-50% + ${driftY}px)) rotate(${+el.dataset.r + Math.sin(phase)*1.8}deg) scale(${el.dataset.s})`;
+    });
+    requestAnimationFrame(heroLoop);
+  }
+  if(!reduce) requestAnimationFrame(heroLoop);
+
+  // Header state.
+  const header=$('#site-header');
+  addEventListener('scroll',()=>header?.classList.toggle('scrolled',scrollY>120),{passive:true});
+
+  // Reveal observer.
+  const revealObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');revealObserver.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  $$('.reveal').forEach(el=>revealObserver.observe(el));
+
+  // Canvas scene state.
+  const scenes={
+    manufacturing:{image:'factory.svg',prompt:'Build a high-converting industrial website',title:'Capabilities brief',copy:'Precision fabrication, tolerances, exports.',output:'A site that sells capability'},
+    hospitality:{image:'restaurant.svg',prompt:'Turn a heritage dining story into a booking journey',title:'Experience brief',copy:'Culture, food, place and direct reservations.',output:'A site people want to visit'},
+    resort:{image:'resort.svg',prompt:'Make the resort feel quiet before the guest arrives',title:'Retreat brief',copy:'Eight acres, wildlife, rooms and a calm booking flow.',output:'A booking journey with no friction'},
+    heritage:{image:'heritage.svg',prompt:'Make 150 years of character feel effortless online',title:'Heritage brief',copy:'Pol house, craft, history and a modern enquiry path.',output:'A digital front door with character'},
+    health:{image:'health.svg',prompt:'Build trust before the first healthcare enquiry',title:'Trust brief',copy:'Services, proof, contact and clarity at every step.',output:'A calm, credible patient journey'}
+  };
+  const canvas=$('#canvas');
+  const img=$('#canvas-image');
+  const tabs=$$('.canvas-tabs button');
+  function setScene(key){
+    const s=scenes[key]; if(!s)return;
+    img.style.backgroundImage=`url('assets/${s.image}')`;
+    $('#scene-prompt').textContent=s.prompt;
+    $('#node-title').textContent=s.title;
+    $('#node-copy').textContent=s.copy;
+    $('#node-output').textContent=s.output;
+    $('#node-image').src=`assets/${s.image}`;
+    tabs.forEach(b=>b.classList.toggle('active',b.dataset.scene===key));
+  }
+  tabs.forEach(b=>b.addEventListener('click',()=>setScene(b.dataset.scene)));
+  const canvasObserver=new IntersectionObserver(entries=>entries.forEach(e=>e.target.classList.toggle('in-view',e.isIntersecting)),{threshold:.22});
+  if(canvas)canvasObserver.observe(canvas);
+
+  // Add subtle scroll depth to canvas image.
+  if(!reduce){addEventListener('scroll',()=>{if(!canvas)return;const rect=canvas.getBoundingClientRect();const p=Math.min(1,Math.max(0,(innerHeight-rect.top)/(rect.height+innerHeight)));img.style.transform=`scale(${1.04+p*.05}) translateY(${p*-2}%)`},{passive:true})}
+
+  // Billing switch visual state.
+  $$('.billing button').forEach(b=>b.addEventListener('click',()=>{$$('.billing button').forEach(x=>x.classList.remove('active'));b.classList.add('active')}));
+})();
