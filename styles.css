@@ -1,51 +1,139 @@
-/* GTC visual layer. Melius production CSS remains the base system. */
-:root{--gtc-orange:#f04e23;--gtc-yellow:#fff78b;--gtc-ink:#1a1616;--gtc-paper:#f2f1ef;--gtc-gray:#676767}
-.gtc-site{background:#1a1616}
-.gtc-brand-lockup{display:flex;align-items:center;gap:8px;font-family:var(--font-fg-futurist),sans-serif;font-weight:700;color:#fff}
-.gtc-mark{display:grid;place-items:center;width:24px;height:24px;border-radius:4px;background:var(--gtc-orange);font-size:12px;line-height:1;color:#fff}
-.gtc-brand-name{font-size:13px;letter-spacing:-.02em;white-space:nowrap}
-.gtc-hero-gallery{position:absolute;inset:0;z-index:15;pointer-events:none;overflow:hidden;isolation:isolate}
-.gtc-hero-card{position:absolute;left:50%;top:var(--y);width:var(--s);aspect-ratio:1/1;overflow:hidden;border-radius:5px;background:#fff;box-shadow:0 10px 24px rgba(0,0,0,.13);transform:translate(-50%,-50%) translateX(var(--x)) rotate(var(--r));opacity:0;animation:gtc-card-in 1100ms cubic-bezier(.16,1,.3,1) forwards;animation-delay:calc(var(--i)*45ms);will-change:transform}
-.gtc-hero-card img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(1.02)}
-@keyframes gtc-card-in{from{opacity:0;transform:translate(-50%,-50%) translateX(var(--x)) rotate(calc(var(--r) + 8deg)) scale(.82)}to{opacity:1;transform:translate(-50%,-50%) translateX(var(--x)) rotate(var(--r)) scale(1)}}
-.gtc-hero-gallery::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 55%,rgba(242,241,239,.02) 0 20%,rgba(242,241,239,.86) 50%,#f2f1ef 72%);z-index:20}
-#hero .min-h-main>h1,#hero .min-h-main>div{position:relative;z-index:30}
-.gtc-hero-prompt{display:block;width:100%;min-height:56px;padding:15px 60px 15px 18px;border:1px solid #b9b9b9;border-radius:8px;background:#fff;color:#1a1616;outline:none;resize:none;box-shadow:0 12px 35px rgba(0,0,0,.08);font:inherit}
-.gtc-hero-prompt:focus{border-color:var(--gtc-orange);box-shadow:0 0 0 3px rgba(240,78,35,.13),0 12px 35px rgba(0,0,0,.08)}
-#hero-prompt-slot{position:relative;z-index:35}
-.gtc-prompt-submit{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:0;background:var(--gtc-orange);color:#fff;font-size:22px;cursor:pointer;transition:transform .25s var(--ease-quart-in-out),box-shadow .25s}
-.gtc-prompt-submit:hover{transform:translateY(-50%) scale(1.06);box-shadow:0 7px 20px rgba(240,78,35,.3)}
-#models .gtc-trust-grid{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;align-content:center;flex-wrap:wrap;gap:14px;max-width:1200px;margin:auto;padding:10vw}
-.gtc-trust-chip{padding:13px 18px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:#fff;background:rgba(255,255,255,.04);font-family:var(--font-fg-futurist),sans-serif;font-size:12px;letter-spacing:-.01em;transition:transform .25s,background .25s,border-color .25s}
-.gtc-trust-chip:hover{transform:translateY(-3px);background:rgba(240,78,35,.12);border-color:var(--gtc-orange)}
-#pricing .bg-yellow{background:var(--gtc-yellow)!important}
-#pricing .c-pricing-card{overflow:hidden}
-#pricing .c-pricing-card .gtc-hide{display:none!important}
-.gtc-faq-answer{max-width:60rem;padding:0 0 1.25rem}
-.gtc-contact-section{position:relative;z-index:10;background:#f2f1ef;padding:10vw 5vw}
-.gtc-contact-inner{max-width:1200px;margin:auto;text-align:center}
-.gtc-contact-inner h2{margin:18px auto;max-width:900px}
-.gtc-contact-inner p{max-width:650px;margin:0 auto 28px}
-.gtc-contact-btn,.gtc-footer-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:7px;text-decoration:none;font-family:var(--font-fg-futurist),sans-serif;font-size:13px;font-weight:600;transition:transform .25s,box-shadow .25s}
-.gtc-contact-btn:hover,.gtc-footer-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.12)}
-.gtc-footer-mark{font-family:var(--font-fg-futurist),sans-serif;font-size:clamp(4rem,12vw,11rem);line-height:.8;color:#fff;letter-spacing:-.08em;margin-bottom:4vw}
-.gtc-footer-title{max-width:1050px;text-align:center}
-.gtc-footer-copy{max-width:620px;text-align:center;margin:20px auto 28px}
-.gtc-footer-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:7vw}
-.gtc-footer-panel{display:grid!important;grid-template-columns:1.2fr 1fr;gap:50px;margin:0 auto}
-.gtc-footer-panel-left{display:flex;flex-direction:column}
-.gtc-newsletter-input{width:100%;height:48px;border:1px solid #d9d9d9;border-radius:7px;background:#fff;padding:0 14px;color:#1a1616;outline:none}
-.gtc-newsletter-input:focus{border-color:var(--gtc-orange)}
-.gtc-footer-links{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.gtc-footer-links>div{display:flex;flex-direction:column;gap:12px}
-.gtc-footer-links a{display:block;text-decoration:none;transition:color .2s}.gtc-footer-links a:hover{color:var(--gtc-orange)}
-.gtc-footer-bottom{max-width:1280px;margin:22px auto 0;text-align:center}
-@media(max-width:900px){.gtc-hero-card{--s:110px!important}.gtc-hero-card:nth-child(n+9){display:none}.gtc-footer-panel{grid-template-columns:1fr}.gtc-footer-links{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.gtc-brand-name{display:none}.gtc-hero-card{--s:92px!important}.gtc-hero-card:nth-child(n+7){display:none}.gtc-footer-links{grid-template-columns:1fr}.gtc-contact-section{padding:18vw 5vw}}
-@media(prefers-reduced-motion:reduce){.gtc-hero-card{animation:none;opacity:1}.gtc-hero-gallery{display:none}.gtc-prompt-submit,.gtc-trust-chip,.gtc-contact-btn,.gtc-footer-btn{transition:none}}
+/* GTC visual layer: preserve the supplied Melius design tokens/utilities and only add
+   the missing GTC asset/layout/interaction rules. */
 
-.gtc-mobile-drawer{display:none;position:absolute;left:-1px;right:-1px;top:100%;margin-top:4px;padding:10px;background:#202020;border:1px solid rgba(255,255,255,.18);border-radius:8px;box-shadow:0 14px 34px rgba(0,0,0,.28)}
-.gtc-mobile-drawer a{display:block;padding:11px 12px;color:#fff;text-decoration:none;border-radius:5px;font:12px var(--font-fg-futurist),sans-serif}.gtc-mobile-drawer a:hover{background:rgba(240,78,35,.18);color:#fff}
-.gtc-menu-open .gtc-mobile-drawer{display:block}
-#canvas::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(circle 260px at var(--mouse-x,50%) var(--mouse-y,50%),rgba(240,78,35,.09),transparent 70%);mix-blend-mode:screen}
-@media(min-width:861px){.gtc-mobile-drawer{display:none!important}}
+:root {
+  --gtc-orange: #f04e23;
+  --gtc-yellow: #f4dc55;
+  --gtc-ink: #171313;
+  --gtc-paper: #e9e8e5;
+  --gtc-gray: #a7a5a1;
+}
+
+html { scroll-behavior: smooth; }
+body.gtc-site { overflow-x: hidden; background: #111; }
+
+/* Brand lockup */
+.gtc-brand-lockup { display:flex; align-items:center; gap:8px; min-width:0; }
+.gtc-mark { width:24px; height:24px; display:grid; place-items:center; flex:0 0 24px; border-radius:4px; background:var(--gtc-orange); color:#fff; font:800 12px/1 var(--font-fg-futurist), Arial, sans-serif; }
+.gtc-brand-name { color:#fff; font:700 13px/1 var(--font-fg-futurist), Arial, sans-serif; letter-spacing:-.02em; white-space:nowrap; }
+
+/* Melius hero gallery: the previous build had no rules for these custom elements,
+   which is why the cards collapsed/appeared blank. */
+.gtc-hero-gallery { position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+.gtc-hero-card {
+  position:absolute; left:50%; top:0; width:var(--s); aspect-ratio:4/5; margin:0;
+  transform:translate3d(calc(-50% + var(--x)), var(--y), 0) rotate(var(--r));
+  transform-origin:50% 100%;
+  overflow:hidden; border-radius:2px;
+  background:#c9c7c2;
+  box-shadow:0 18px 34px rgba(0,0,0,.12);
+  opacity:0;
+  will-change:transform,opacity;
+  animation:gtc-hero-card-in 1.05s cubic-bezier(.22,1,.36,1) forwards;
+  animation-delay:calc(var(--i) * 55ms);
+}
+.gtc-hero-card img { width:100%; height:100%; display:block; object-fit:cover; filter:saturate(.92) contrast(.98); }
+.gtc-hero-card::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(255,255,255,.05),transparent 30%,rgba(0,0,0,.08)); pointer-events:none; }
+@keyframes gtc-hero-card-in { from { opacity:0; transform:translate3d(calc(-50% + var(--x)), calc(var(--y) + 28px), 0) rotate(calc(var(--r) * 1.6)) scale(.94); } to { opacity:1; transform:translate3d(calc(-50% + var(--x)), var(--y), 0) rotate(var(--r)) scale(1); } }
+
+#hero > .min-h-main { z-index:5; }
+#hero h1 { position:relative; z-index:8; max-width:760px; }
+#hero h1 span { display:block; }
+#hero .gtc-hero-prompt {
+  width:min(100%, 340px); min-height:46px; resize:none; border:1px solid rgba(0,0,0,.15);
+  border-radius:4px; padding:14px 50px 12px 15px; background:rgba(255,255,255,.86);
+  color:#151313; box-shadow:0 10px 28px rgba(0,0,0,.08); outline:none;
+  font:500 12px/1.35 var(--font-fg-futurist),Arial,sans-serif;
+}
+.gtc-hero-prompt::placeholder { color:#77736f; }
+.gtc-hero-prompt:focus { border-color:var(--gtc-orange); box-shadow:0 12px 32px rgba(240,78,35,.12); }
+#hero-prompt-slot { position:relative; z-index:10; }
+.gtc-prompt-submit { position:absolute; right:6px; top:6px; width:34px; height:34px; border:0; border-radius:50%; background:var(--gtc-orange); color:#fff; cursor:pointer; font-size:18px; line-height:1; transition:transform .25s ease,background .2s ease; }
+.gtc-prompt-submit:hover { transform:scale(1.06); background:#d9441d; }
+
+/* Canvas is the visual centerpiece. The source HTML contains the real Melius-style
+   node scenes, but the previous JS never ran the React state transitions. Reveal the
+   existing scenes and make them responsive without rebuilding their geometry. */
+#canvas { min-height:500vh; }
+#canvas > .relative.z-10 { position:relative; z-index:10; }
+#canvas .relative.flex.items-center.gap-2.px-\[15px\] { border-top:1px solid rgba(255,255,255,.08); }
+#canvas [style*="opacity:0"][style*="translateY(16px)"] { opacity:1 !important; transform:none !important; }
+#canvas [style*="opacity:0"][style*="transform:scale(0)"] { opacity:1 !important; transform:scale(1) !important; }
+#canvas svg path[opacity="0"] { opacity:.72 !important; stroke-dasharray:1 0 !important; }
+#canvas svg g[opacity="0"] { opacity:1 !important; }
+#canvas .mask-gradient { pointer-events:none !important; }
+#canvas .gtc-canvas-fade { background:linear-gradient(90deg,#000 0%,transparent 10%,transparent 90%,#000 100%); }
+
+/* Restore interaction for canvas showcase nodes that were intentionally pointerless
+   in the server snapshot. */
+#canvas .touch-pan-y { pointer-events:auto !important; cursor:grab; }
+#canvas .touch-pan-y:active { cursor:grabbing; }
+#canvas [id^="canvas-showcase-"] img { opacity:.82; filter:saturate(.85) contrast(1.03); }
+#canvas [id^="canvas-showcase-"] video { opacity:.82; }
+
+/* Persona cards: Melius uses a single active card with a stack behind it. */
+#personas { min-height:100svh; overflow:hidden; }
+#personas > .relative.z-20 { min-height:100svh; display:grid; place-items:center; padding:12vh 0; }
+#personas > .relative.z-20 > div { pointer-events:auto !important; opacity:1 !important; }
+#personas > .relative.z-20 > div:not(:first-child) { opacity:.96 !important; }
+#personas img { display:block; }
+
+/* Trust / model strip */
+.gtc-trust-grid { width:min(92vw,1200px); margin:0 auto; display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:0 20px; }
+.gtc-trust-chip { border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.035); color:#d7d4cf; border-radius:4px; padding:10px 13px; font:500 11px/1 var(--font-fg-futurist),Arial,sans-serif; letter-spacing:-.02em; transition:background .25s,border-color .25s,transform .25s; }
+.gtc-trust-chip:hover { background:rgba(240,78,35,.13); border-color:rgba(240,78,35,.65); transform:translateY(-2px); }
+
+/* Pricing uses the actual Melius card classes in the HTML. Keep their geometry, only
+   make the GTC featured card's state explicit. */
+#pricing .c-pricing-card { min-height:620px; }
+#pricing [data-plan-key="creator"] .c-pricing-card { border-color:var(--gtc-orange); }
+#pricing [data-plan-key="creator"] > .relative > .relative > div:first-child { opacity:.85; }
+#pricing .c-pricing-card img[src="gtc-coin.svg"] { width:100%; height:auto; }
+
+/* FAQ */
+#faq [data-slot="accordion-item"] { border-color:rgba(255,255,255,.13); }
+#faq .accordion-trigger { position:relative; }
+#faq .accordion-item-icon::before, #faq .accordion-item-icon::after { transition:transform .3s cubic-bezier(.22,1,.36,1); }
+
+/* Contact + footer */
+.gtc-contact-section { position:relative; z-index:5; min-height:72svh; display:grid; place-items:center; padding:12vh 5vw; background:var(--gtc-paper); background-image:radial-gradient(circle at 50% 20%,rgba(0,0,0,.08) 1px,transparent 1px); background-size:15px 15px; }
+.gtc-contact-inner { width:min(900px,100%); text-align:center; display:flex; flex-direction:column; align-items:center; gap:18px; }
+.gtc-contact-inner h2 { max-width:850px; }
+.gtc-contact-inner p { max-width:520px; }
+.gtc-contact-btn { display:inline-flex; align-items:center; justify-content:center; padding:14px 20px; border-radius:4px; color:#fff; text-decoration:none; font:600 12px/1 var(--font-fg-futurist),Arial,sans-serif; transition:transform .25s,opacity .2s; }
+.gtc-contact-btn:hover { transform:translateY(-2px); opacity:.9; }
+.gtc-footer-mark { font:800 clamp(56px,12vw,150px)/.8 var(--font-fg-futurist),Arial,sans-serif; letter-spacing:-.08em; color:rgba(255,255,255,.13); margin-bottom:3vh; }
+.gtc-footer-title { max-width:900px; text-align:center; }
+.gtc-footer-copy { max-width:600px; text-align:center; margin:18px auto 0; }
+.gtc-footer-actions { display:flex; gap:8px; justify-content:center; margin:24px 0 70px; }
+.gtc-footer-btn { display:inline-flex; padding:13px 18px; border-radius:4px; color:#111; text-decoration:none; font:600 11px/1 var(--font-fg-futurist),Arial,sans-serif; }
+.gtc-footer-btn.bg-orange { color:#fff; }
+.gtc-footer-panel { margin-inline:auto; }
+.gtc-footer-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:48px; }
+.gtc-footer-links > div { display:flex; flex-direction:column; gap:10px; }
+.gtc-newsletter-input { width:100%; border:0; border-radius:4px; padding:14px 15px; background:#fff; color:#111; outline:none; font:500 12px/1 var(--font-fg-futurist),Arial,sans-serif; }
+.gtc-footer-bottom { margin-top:24px; text-align:center; }
+
+/* Intersection reveal, matching the restrained Melius rise/fade language. */
+.gtc-reveal { opacity:0; transform:translateY(24px); transition:opacity 900ms cubic-bezier(.22,1,.36,1), transform 900ms cubic-bezier(.22,1,.36,1); }
+.gtc-reveal.is-visible { opacity:1; transform:none; }
+
+/* Mobile: preserve the Melius hierarchy instead of shrinking the desktop canvas. */
+@media (max-width: 900px) {
+  .gtc-brand-name { max-width:150px; overflow:hidden; text-overflow:ellipsis; }
+  .gtc-hero-gallery { opacity:.48; }
+  .gtc-hero-card { --s:150px !important; }
+  .gtc-hero-card:nth-child(-n+3), .gtc-hero-card:nth-last-child(-n+3) { opacity:.55; }
+  #hero h1 { max-width:92vw; }
+  #hero .mt-58, #hero .lg\:mt-76 { margin-top:38vh !important; }
+  #canvas { min-height:620vh; }
+  #canvas .pointer-events-none.absolute.inset-0.z-30 { position:sticky; }
+  #canvas [id^="canvas-showcase-"] > div { transform-origin:top left !important; }
+  #pricing .c-pricing-card { min-height:unset; }
+  .gtc-footer-actions { flex-direction:column; width:min(260px,100%); }
+  .gtc-footer-links { gap:25px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gtc-hero-card, .gtc-reveal { animation:none !important; transition:none !important; opacity:1; transform:none; }
+}
